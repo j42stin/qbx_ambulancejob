@@ -25,7 +25,7 @@ lib.callback.register('hospital:client:UseIfaks', function()
         OnPainKillers = true
         exports.qbx_medical:DisableDamageEffects()
         if painkillerAmount < 3 then
-            painkillerAmount += 1
+            painkillerAmount = painkillerAmount + 1
         end
         if math.random(1, 100) < 50 then
             exports.qbx_medical:RemoveBleed(1)
@@ -92,7 +92,7 @@ lib.callback.register('hospital:client:UsePainkillers', function()
         OnPainKillers = true
         exports.qbx_medical:DisableDamageEffects()
         if painkillerAmount < 3 then
-            painkillerAmount += 1
+            painkillerAmount = painkillerAmount + 1
         end
         return true
     else
@@ -102,7 +102,7 @@ lib.callback.register('hospital:client:UsePainkillers', function()
 end)
 
 local function consumePainKiller()
-    painkillerAmount -= 1
+    painkillerAmount = painkillerAmount - 1
     Wait(config.painkillerInterval * 1000)
     if painkillerAmount > 0 then return end
     painkillerAmount = 0
