@@ -38,7 +38,7 @@ RegisterNetEvent('hospital:client:ambulanceAlert', function(coords, text)
     EndTextCommandSetBlipName(blip)
     while transG ~= 0 do
         Wait(720)
-        transG -= 1
+        transG = transG - 1
         SetBlipAlpha(blip, transG)
         SetBlipAlpha(blip2, transG)
         if transG == 0 then
